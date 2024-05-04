@@ -1,0 +1,18 @@
+{
+  "name": "simplecrm",
+  "version": "1.0.0",
+  "description": "Ce projet vise à développer une solution de facturation en ligne (*SAAS*) pour les entreprises qui émettent leurs propres factures moyennant un abonnement mensuel (*Subscription Model*). Les besoins croissants en matière de gestion de la facturation ont conduit ces entreprises à rechercher des solutions \"tout-en-un\" leur permettant de gérer leur comptabilité et leurs approvisionnements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.13.0"
+  }
+}
