@@ -20,10 +20,10 @@ app.use('/api/v1/facture', factureRoute)
 app.use('/api/v1/approvisionnement', approvisionnementRoute)
 app.use('/api/v1/facture_product', facture_product)
 
-// app.use((err, req, res, next) => {
-//     console.error(err.stack);
-//     res.status(500).json({ error: 'Something went wrong!' });
-// });
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Something went wrong!' });
+});
 
 app.listen(5000, () => {
     console.log('Server is listening on Port 5000...');
