@@ -1,14 +1,81 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model approvisionnement {
+  ID              Int      @id @default(autoincrement())
+  ID_Entreprise   Int?
+  ID_Fournisseur  Int?
+  ID_Produit      Int?
+  RESTOCKING_DATE DateTime @db.Date
+  QUANTITY        Int
+
+  @@index([ID_Entreprise], map: "ID_Entreprise")
+  @@index([ID_Fournisseur], map: "ID_Fournisseur")
+  @@index([ID_Produit], map: "ID_Produit")
+}
+
+model client {
+  ID           Int    @id @default(autoincrement())
+  FIRST_NAME   String @db.VarChar(255)
+  LAST_NAME    String @db.VarChar(255)
+  ADRESSE      String @db.VarChar(255)
+  CITY         String @db.VarChar(255)
+  PHONE_NUMBER Int    @unique(map: "PHONE_NUMBER")
+  EMAIL        String @unique(map: "EMAIL") @db.VarChar(255)
+}
+
+model entreprise {
+  ID               Int      @id @default(autoincrement())
+  NAME             String   @db.VarChar(255)
+  SIEGE_SOCIAL     String   @db.VarChar(255)
+  CREATION_DATE    DateTime @db.Date
+  FISCAL_IDENTITY  String   @db.VarChar(255)
+  CAPITAL          Int
+  EMPLOYEES_NUMBER Int
+  CITY             String   @db.VarChar(255)
+  CEO              String   @db.VarChar(255)
+  NUMERO_TELEPHONE Int      @unique(map: "NUMERO_TELEPHONE")
+  EMAIL            String   @unique(map: "EMAIL") @db.VarChar(255)
+}
+
+model facture {
+  ID            Int  @id @default(autoincrement())
+  ID_Client     Int?
+  ID_Entreprise Int?
+  QUANTITY      Int
+
+  @@index([ID_Client], map: "ID_Client")
+  @@index([ID_Entreprise], map: "ID_Entreprise")
+}
+
+model facture_product {
+  ID         Int  @id @default(autoincrement())
+  ID_Facture Int?
+  ID_Product Int?
+  QUANTITY   Int
+
+  @@index([ID_Facture], map: "ID_Facture")
+  @@index([ID_Product], map: "ID_Product")
+}
+
+model fournisseur {
+  ID           Int    @id @default(autoincrement())
+  NAME         String @db.VarChar(255)
+  ADRESSE      String @db.VarChar(255)
+  CITY         String @db.VarChar(255)
+  PHONE_NUMBER Int    @unique(map: "PHONE_NUMBER")
+  EMAIL        String @unique(map: "EMAIL") @db.VarChar(255)
+}
+
+model product {
+  ID            Int     @id @default(autoincrement())
+  NAME          String  @db.VarChar(255)
+  BUYING_PRICE  Int
+  SELLING_PRICE Int
 }

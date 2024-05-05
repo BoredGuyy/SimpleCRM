@@ -4,7 +4,7 @@
   "description": "Ce projet vise à développer une solution de facturation en ligne (*SAAS*) pour les entreprises qui émettent leurs propres factures moyennant un abonnement mensuel (*Subscription Model*). Les besoins croissants en matière de gestion de la facturation ont conduit ces entreprises à rechercher des solutions \"tout-en-un\" leur permettant de gérer leur comptabilité et leurs approvisionnements.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
     "nodemon": "^3.1.0"
   },
   "dependencies": {
-    "@prisma/client": "^5.13.0"
+    "@prisma/client": "^5.13.0",
+    "express": "^4.19.2"
   }
 }
