@@ -10,6 +10,7 @@ const fournisseurRoute = require('./routes/fournisseurRoute')
 const productRoute = require('./routes/productRoute')
 const factureRoute = require('./routes/factureRoute')
 const approvisionnementRoute = require('./routes/approvisionnementRoute')
+const facture_product = require('./routes/facture_productRoute')
 
 app.use('/api/v1/client', clientRoute)
 app.use('/api/v1/entreprise', entrepriseRoute)
@@ -17,6 +18,7 @@ app.use('/api/v1/fournisseur', fournisseurRoute)
 app.use('/api/v1/product', productRoute)
 app.use('/api/v1/facture', factureRoute)
 app.use('/api/v1/approvisionnement', approvisionnementRoute)
+app.use('/api/v1/facture_product', facture_product)
 
 // app.use((err, req, res, next) => {
 //     console.error(err.stack);
