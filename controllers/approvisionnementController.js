@@ -60,7 +60,7 @@ const updateApprovisionnement = async (req, res) => {
         QUANTITY: req.body.QUANTITY
       },
     });
-    res.status(201).json(updateApprovisionnement);
+    res.status(201).json(updatedApprovisionnement);
     console.log('approvisionnement updated successfuly')
   } catch (error) {
     console.error('Couldnt update approvisionnement', error);
