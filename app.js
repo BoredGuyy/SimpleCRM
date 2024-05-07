@@ -25,6 +25,12 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Something went wrong!' });
 });
 
+app.all('*', (req, res, next) => {
+    res.status(400).json({success: false, msg: 'wrong url path'})
+    console.log(`${req.originalUrl} doesnt exist`)
+    next()
+})
+
 app.listen(5000, () => {
     console.log('Server is listening on Port 5000...');
 })
